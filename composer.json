@@ -1,0 +1,20 @@
+{
+    "name": "beara/phonebook",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Mikhail",
+            "email": "bearatol@yandex.ru"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "classmap": [
+            "application"
+        ],
+        "psr-4": {
+            "App\\": "application",
+            "liw\\": ""
+        }
+    }
+}
