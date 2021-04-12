@@ -9,14 +9,16 @@ class CreatenumberController extends View
     public function actionIndex()
     {
         $request["message"] = "";
-        if($_POST["NAME"] && $_POST["PHONE"]){
-            $model = new Createnumber;
-            $message = $model->setNumber($_POST["NAME"], $_POST["PHONE"]);
-            if($message){
-                $request["message"] = "Phone added!";
-            }else{
-                $request["message"] = "Phone wasn't added.";
-            }
+        $model = new Createnumber;
+        $p_name = trim($_POST["NAME"]);
+        $p_phone = trim($_POST["PHONE"]);
+        if($p_name && $p_phone) {
+            $message = $model->setNumber($p_name, $p_phone);
+        }
+        if($message){
+            $request["message"] = "Phone added!";
+        }else{
+            $request["message"] = "Phone wasn't added.";
         }
         $this->render('createnumber/index', $request);
     }

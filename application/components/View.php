@@ -1,12 +1,10 @@
 <?php
 
-
 namespace View;
-
 
 class View
 {
-    protected function render($file, $variables = [])
+    protected function render(string $file, array $variables = [])
     {
         extract($variables, EXTR_OVERWRITE);
 

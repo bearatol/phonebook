@@ -1,37 +1,38 @@
 <?php
+
 namespace Router;
 
 
 class Router
 {
 
-	private $routes = [];
+    private $routes = [];
 
-	public function __construct()
-	{
-		$routesPath = ROOT. '/application/config/routes.php';
-		$this->routes = include($routesPath);
-	}
+    public function __construct()
+    {
+        $routesPath = ROOT . '/application/config/routes.php';
+        $this->routes = include($routesPath);
+    }
 
 
-	public function getURI()
-	{
-		$arUri = parse_url($_SERVER['REQUEST_URI']);
-		if (!empty($arUri["path"])) {
-			if($arUri["path"] == '/')
-				return 'main';
-			else
-				return trim($arUri["path"], '/');
-		}else{
-			return 'failed';
-		}
-	}
+    public function getURI()
+    {
+        $arUri = parse_url($_SERVER['REQUEST_URI']);
+        if (!empty($arUri["path"])) {
+            if ($arUri["path"] == '/')
+                return 'main';
+            else
+                return trim($arUri["path"], '/');
+        } else {
+            return 'failed';
+        }
+    }
 
-	public function run()
+    public function run()
     {
         $uri = $this->getURI();
         $not_found = true;
-        foreach ($this->routes as $uriPattern => $path){
+        foreach ($this->routes as $uriPattern => $path) {
             if (preg_match("~$uriPattern~", $uri)) {
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
 
@@ -66,11 +67,11 @@ class Router
                 }
             }
         }
-		if($not_found) {
+        if ($not_found) {
             $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
             header('HTTP/1.1 404 Not Found');
             header("Status: 404 Not Found");
             header('Location:' . $host . '404');
         }
-	}
+    }
 }
