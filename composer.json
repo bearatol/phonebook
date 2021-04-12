@@ -10,10 +10,10 @@
     "require": {},
     "autoload": {
         "classmap": [
-            "Application"
+            "application"
         ],
         "psr-4": {
-            "App\\": "Application",
+            "App\\": "application",
             "liw\\": ""
         }
     },
