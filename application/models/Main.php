@@ -7,7 +7,7 @@ use PDO;
 
 class Main
 {
-    public function getNumbers(string $search_text = "")
+    public function getNumbers(string $search_text = ""): array
     {
         $db = Db::getConnection();
         if ($search_text === "") {
