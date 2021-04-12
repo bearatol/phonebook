@@ -26,6 +26,7 @@ $url = $router->getURI();
 
     <!-- script -->
     <script src="/templates/script/jquery-3.5.1.min.js"></script>
+    <script src="/templates/script/jquery.mask.min.js"></script>
     <script src="/templates/script/bootstrap.min.js"></script>
     <script src="/templates/script/bootstrap.bundle.min.js"></script>
     <script src="/templates/script/script.js?<?= time() ?>"></script>

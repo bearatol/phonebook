@@ -27,9 +27,30 @@ class Main
         return false;
     }
 
-    public function deleteField(string $table, int $id) {
+    public function deleteField(string $table, int $id)
+    {
         $db = Db::getConnection();
         $sql = "DELETE FROM {$table} WHERE `id`={$id}";
         $stmt = $db->query($sql);
+
+        return $stmt ? true : false;
+    }
+
+    public function updateField(string $table, int $id, string $field, string $value)
+    {
+        $db = Db::getConnection();
+        $sql = "UPDATE {$table} SET {$field}='{$value}' WHERE `id`={$id}";
+        $stmt = $db->query($sql);
+
+        return $stmt ? true : false;
+    }
+
+    public function setNumber(string $phone, int $user_id)
+    {
+        $db = Db::getConnection();
+        $sql = "INSERT INTO `numbers`(`number`, `user`) VALUES ('{$phone}', '{$user_id}')";
+        $stmt = $db->query($sql);
+
+        return $stmt ? true : false;
     }
 }

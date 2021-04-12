@@ -1,11 +1,11 @@
 $(function () {
   $("button.mod", document).click(function () {
-    var tr = $(this).parents("tr");
-    var name = tr.find(".name").text();
-    var phone = tr.find(".phone").text();
-    var user_id = tr.data("user");
-    var phone_id = tr.data("phone");
-    var modal = $("#modal-mod", document);
+    let tr = $(this).parents("tr");
+    let name = tr.find(".name").text();
+    let phone = tr.find(".phone").text();
+    let user_id = tr.data("user");
+    let phone_id = tr.data("phone");
+    let modal = $("#modal-mod", document);
 
     modal.find("[name='USER_ID']").val(user_id);
     modal.find(".name").val(name);
@@ -14,4 +14,6 @@ $(function () {
 
     modal.modal("show");
   });
+
+  $(".phone-mask", document).mask('+7-(000)-000-00-00');
 });

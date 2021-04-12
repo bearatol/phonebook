@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="tel" class="form-control" id="phone" placeholder="Phone" name="PHONE" required>
+            <input type="tel" class="form-control phone-mask" id="phone" placeholder="Phone" name="PHONE" required>
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
     </form>

@@ -4,17 +4,6 @@
  * @var array $list
  */
 
- /*
- echo "<pre>";
- var_dump($list);
- echo "</pre>";
- */
-
- var_dump($_POST);
- /*
- var_dump($_DELETE);
- var_dump($_GET);
- */
 ?>
 
 <h1>Phonebook list</h1>
@@ -74,7 +63,7 @@
         <div class="form-group">
             <label for="name">Phone</label>
             <input type="hidden" name="PHONE_ID" value="">
-            <input type="text" class="form-control phone" placeholder="Phone" name="PHONE">
+            <input type="text" class="form-control phone phone-mask" placeholder="Phone" name="PHONE">
         </div>
       </div>
       <div class="modal-footer">
